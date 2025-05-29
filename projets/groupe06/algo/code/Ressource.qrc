@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>img/add-document.png</file>
+        <file>img/arrow_good(redo).png</file>
+        <file>img/arrow_good(undo).png</file>
+        <file>img/change-management.png</file>
+        <file>img/cut.png</file>
+        <file>img/duplicate-content.png</file>
+        <file>img/information.png</file>
+        <file>img/istockphoto-1304731713-1024x1024.jpg</file>
+        <file>img/open-folder.png</file>
+        <file>img/save.png</file>
+        <file>img/save-data_as.png</file>
+        <file>img/paste.png</file>
+        <file>img/color-palette.png</file>
+        <file>img/font-size.png</file>
+        <file>ressource2.qrc</file>
+    </qresource>
+</RCC>

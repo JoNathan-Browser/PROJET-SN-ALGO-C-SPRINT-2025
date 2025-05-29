@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>351</width>
+      <height>111</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="separator"/>
+    <addaction name="actionRedo"/>
+    <addaction name="actionUndo"/>
+   </widget>
+   <widget class="QMenu" name="menuinfo">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionInfo_2"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionPolice"/>
+    <addaction name="actioncolor"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuinfo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSave_as"/>
+   <addaction name="actionCut"/>
+   <addaction name="actionPaste"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionRedo"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionPolice"/>
+   <addaction name="actioncolor"/>
+   <addaction name="actionInfo_2"/>
+   <addaction name="actionSettings"/>
+  </widget>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/add-document.png</normaloff>:/rec/img/add-document.png</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/open-folder.png</normaloff>:/rec/img/open-folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/save.png</normaloff>:/rec/img/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/save-data_as.png</normaloff>:/rec/img/save-data_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save as</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/cut.png</normaloff>:/rec/img/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/paste.png</normaloff>:/rec/img/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="toolTip">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/duplicate-content.png</normaloff>:/rec/img/duplicate-content.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="toolTip">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/arrow_good(redo).png</normaloff>:/rec/img/arrow_good(redo).png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/arrow_good(undo).png</normaloff>:/rec/img/arrow_good(undo).png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionInfo_2">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/information.png</normaloff>:/rec/img/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string> </string>
+   </property>
+  </action>
+  <action name="actionPolice">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/font-size.png</normaloff>:/rec/img/font-size.png</iconset>
+   </property>
+   <property name="text">
+    <string>Police</string>
+   </property>
+  </action>
+  <action name="actioncolor">
+   <property name="icon">
+    <iconset resource="Ressource.qrc">
+     <normaloff>:/rec/img/color-palette.png</normaloff>:/rec/img/color-palette.png</iconset>
+   </property>
+   <property name="text">
+    <string>color</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Ressource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
