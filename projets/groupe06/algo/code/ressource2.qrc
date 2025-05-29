@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>img/color-palette.png</file>
+        <file>img/font-size.png</file>
+        <file>img/Logo.ico</file>
+    </qresource>
+</RCC>
