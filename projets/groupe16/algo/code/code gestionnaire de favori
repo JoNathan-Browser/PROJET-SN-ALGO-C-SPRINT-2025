@@ -1,0 +1,132 @@
+
+   #include <fstream>
+#include "Gestionnaire_de_fichiers.hpp"
+
+GestionnaireFavoris::GestionnaireFavoris() : tete(nullptr)
+{
+
+}
+
+GestionnaireFavoris::~GestionnaireFavoris()
+{
+    FavoriNode* courant = tete;
+    while (courant)
+    {
+        FavoriNode* temp = courant;
+        courant = courant->suivant;
+        delete temp;
+    }
+}
+
+//Ajout d'un favori
+void GestionnaireFavoris::ajouter(const std::string titre, const std::string url)
+{
+    FavoriNode* nouveau = new FavoriNode(titre, url);
+    nouveau->suivant = tete;
+    tete = nouveau;
+}
+
+//Suppression d'un favori
+bool GestionnaireFavoris::supprimer(const std::string titre)
+{
+    FavoriNode* courant = tete;
+    FavoriNode* precedent = nullptr; while(courant)
+    {
+        if(courant->m_titre == titre)
+        {
+            if(precedent)
+            {
+                precedent->suivant = courant->suivant;
+            }
+            else
+            {
+                tete = courant->suivant;
+            }
+            delete courant;
+            return true;
+        }
+        precedent = courant;
+        courant = courant->suivant;
+    }
+    return false;
+}
+
+//Affichage des favoris
+QStringList GestionnaireFavoris::afficher() const
+{
+    QStringList liste;
+    FavoriNode* courant = tete;
+    while(courant != nullptr)
+    {
+        QString ligne = QString::fromStdString("Titre: " + courant->m_titre + " | " + "URL: " + courant->m_url);
+        liste << ligne;
+        courant = courant->suivant;
+    }
+    return liste;
+}
+
+//Modifier un favori
+ bool GestionnaireFavoris::modifier (const std::string ancienTitre, const std::string nouveauTitre, const std::string nouvelleUrl)
+ {
+     FavoriNode* courant = tete;
+     while (courant != nullptr)
+     {
+         if (courant->m_titre == ancienTitre)
+         {
+             courant->m_titre = nouveauTitre;
+             courant->m_url = nouvelleUrl;
+             return true;
+         }
+         courant = courant->suivant;
+     }
+     return false;
+ }
+
+ //Sauvegarder les favoris
+bool GestionnaireFavoris::sauvegarder(const std::string &nomFichier) const
+{
+    std::ofstream fichier(nomFichier);
+    if(!fichier.is_open()) return false;
+
+    FavoriNode* courant = tete;
+    while (courant)
+    {
+        fichier << "Titre: " << courant->m_titre << "\n"
+                << "URL: " << courant->m_url << "\n\n";
+        courant = courant->suivant;
+    }
+    fichier.close();
+    return true;
+}
+
+//Chargement des favoris
+bool GestionnaireFavoris::charger(const std::string &nomFichier)
+{
+    std::ifstream fichier(nomFichier);
+    if(!fichier.is_open()) return false;
+
+    //Vide la liste existante
+    while(tete)
+    {
+        FavoriNode* temp = tete;
+        tete = tete->suivant;
+        delete temp;
+    }
+
+    std::string ligne, titre, url;
+    while(std::getline(fichier, ligne))
+    {
+        if (ligne.rfind("Titre: ", 0) == 0)
+        {
+            titre = ligne.substr(7);
+
+            if (std::getline(fichier, ligne) && ligne.rfind("URL: ", 0) == 0)
+            {
+            url = ligne.substr(5);
+            ajouter(titre, url);
+            }
+        }
+    }
+    fichier.close();
+    return true;
+}
